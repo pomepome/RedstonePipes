@@ -45,6 +45,10 @@ public class PipeItemsRedstone extends Pipe<PipeTransportItems> {
 	@Override
 	public boolean canPipeConnect(TileEntity tile, ForgeDirection side)
 	{
+		if(RedstonePipes.connectAny)
+		{
+			return true;
+		}
 		if(tile instanceof IPipeTile)
 		{
 			IPipe otherPipe = ((IPipeTile)tile).getPipe();

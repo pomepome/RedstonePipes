@@ -33,6 +33,7 @@ public class RedstonePipes
 	 */
 	public static boolean enabled;
 	public static boolean includeGate;
+	public static boolean connectAny;
 
 	@Mod.Instance("RedstonePipes")
 	RedstonePipes instance;
@@ -50,6 +51,7 @@ public class RedstonePipes
 		config.load();
 		enabled = config.getBoolean("enabled","general",true, "is the mod enabled");
 		includeGate = config.getBoolean("includeGate","general",false,"If true,Redstone Pipe will change color including gate output.");
+		connectAny = config.getBoolean("connectAny","general",false,"If true,this mod's pipes will connect to any pipes/machines");
 		config.save();
 		if(!enabled)
 		{

@@ -1,10 +1,11 @@
 package redstonepipes.pipes;
 
-import redstonepipes.IconProviderPipes;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+import redstonepipes.IconProviderPipes;
+import redstonepipes.RedstonePipes;
 import buildcraft.api.core.IIconProvider;
 import buildcraft.api.transport.IPipe;
 import buildcraft.api.transport.IPipeTile;
@@ -62,6 +63,10 @@ public class PipeItemsGoldenMk2 extends Pipe<PipeTransportItems> {
 	}
 	public boolean canPipeConnect(TileEntity tile, ForgeDirection side)
 	{
+		if(RedstonePipes.connectAny)
+		{
+			return true;
+		}
 		if(tile instanceof IPipeTile)
 		{
 			IPipe otherPipe = ((IPipeTile)tile).getPipe();
