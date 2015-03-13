@@ -47,7 +47,7 @@ public class PipeItemsRedstone extends Pipe<PipeTransportItems> {
 	{
 		if(RedstonePipes.connectAny)
 		{
-			return true;
+			return super.canPipeConnect(tile, side);
 		}
 		if(tile instanceof IPipeTile)
 		{
@@ -56,9 +56,8 @@ public class PipeItemsRedstone extends Pipe<PipeTransportItems> {
 			{
 				return false;
 			}
-			return true;
 		}
-		return true;
+		return super.canPipeConnect(tile, side);
 	}
 	/*
 	 * Update methods

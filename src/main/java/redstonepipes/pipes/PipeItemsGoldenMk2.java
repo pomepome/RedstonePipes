@@ -65,7 +65,7 @@ public class PipeItemsGoldenMk2 extends Pipe<PipeTransportItems> {
 	{
 		if(RedstonePipes.connectAny)
 		{
-			return true;
+			return super.canPipeConnect(tile, side);
 		}
 		if(tile instanceof IPipeTile)
 		{
@@ -74,8 +74,7 @@ public class PipeItemsGoldenMk2 extends Pipe<PipeTransportItems> {
 			{
 				return false;
 			}
-			return true;
 		}
-		return true;
+		return super.canPipeConnect(tile, side);
 	}
 }
