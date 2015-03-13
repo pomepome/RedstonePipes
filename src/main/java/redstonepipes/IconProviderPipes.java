@@ -27,6 +27,5 @@ public class IconProviderPipes implements IIconProvider
 		icons.add(iconRegister.registerIcon("redstonepipes:pipeItemsRedstone_standard"));
 		icons.add(iconRegister.registerIcon("redstonepipes:pipeItemsGoldenMk2_powered"));
 		icons.add(iconRegister.registerIcon("redstonepipes:pipeItemsGoldenMk2_standard"));
-		icons.add(iconRegister.registerIcon("redstonepipes:pipePowerVoid"));
 	}
 }

@@ -11,13 +11,26 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "RedstonePipes",name="RedstonePipes",version="0.2",dependencies="required-after:BuildCraft|Transport")
-public class RedstonePipes {
+@Mod(modid = "RedstonePipes",name="RedstonePipes",version="0.3",dependencies="required-after:BuildCraft|Transport")
+public class RedstonePipes
+{
+
+	/*
+	 * ConfigFile
+	 */
 	File configF;
+	/*
+	 * Pipes
+	 */
 	public static Item pipeRedstone;
 	public static Item pipeGlass;
 	public static Item pipeGoldMk2;
+	/*
+	 * Misc
+	 */
 	public static boolean enabled;
+	public static boolean includeGate;
+
 	@Mod.Instance("RedstonePipes")
 	RedstonePipes instance;
 	ClientProxy proxy = new ClientProxy();
@@ -33,6 +46,7 @@ public class RedstonePipes {
 		Configuration config = new Configuration(configF);
 		config.load();
 		enabled = config.getBoolean("enabled","general",true, "is the mod enabled");
+		includeGate = config.getBoolean("includeGate","general",false,"If true,Redstone Pipe will change color including gate output.");
 		config.save();
 		if(!enabled)
 		{

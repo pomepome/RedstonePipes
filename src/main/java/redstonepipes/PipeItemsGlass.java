@@ -25,6 +25,7 @@ public class PipeItemsGlass extends Pipe<PipeTransportItems> {
 
 	public void eventHandler(PipeEventItem.AdjustSpeed event)
 	{
+		//速度変更しない
 		event.handled = true;
 	}
 

@@ -15,7 +15,15 @@ import buildcraft.transport.pipes.events.PipeEventItem;
 
 public class PipeItemsGoldenMk2 extends Pipe<PipeTransportItems> {
 
-	boolean isPowered = false;
+	/*
+	 * constants
+	 */
+	public static final float MAX_SPEED = 0.33F;//アイテムの最大速度(Max traveling speed)
+	public static final float ACCELERATION = 12.0F;//アイテムの加速度(Acceleration when receiving power)
+	/*
+	 * input
+	 */
+	boolean isPowered = false;//入力を受けているか(Is receiving power)
 
 	public PipeItemsGoldenMk2(Item item) {
 		super(new PipeTransportItems(), item);
@@ -44,9 +52,11 @@ public class PipeItemsGoldenMk2 extends Pipe<PipeTransportItems> {
 		TravelingItem item = event.item;
 		if(!isPowered)
 		{
+			//速度を制限(Limit speed)
 			item.setSpeed(MathUtils.clamp(item.getSpeed(), 0.04F,0.14999999F));
 			return;
 		}
+		//加速(Accelerate)
 		item.setSpeed(MathUtils.clamp(item.getSpeed() * 12.0F, 0.04F,0.32F));
 	}
 	public boolean canPipeConnect(TileEntity tile, ForgeDirection side)

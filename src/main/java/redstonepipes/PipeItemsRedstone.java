@@ -9,9 +9,9 @@ import buildcraft.api.transport.IPipe;
 import buildcraft.api.transport.IPipeTile;
 import buildcraft.transport.Pipe;
 import buildcraft.transport.PipeTransportItems;
+import buildcraft.transport.TravelerSet;
 import buildcraft.transport.TravelingItem;
 import buildcraft.transport.pipes.PipeItemsIron;
-import buildcraft.transport.pipes.events.PipeEventItem;
 
 public class PipeItemsRedstone extends Pipe<PipeTransportItems> {
 
@@ -28,6 +28,10 @@ public class PipeItemsRedstone extends Pipe<PipeTransportItems> {
 
 	@Override
 	public int getIconIndex(ForgeDirection paramForgeDirection) {
+		if(RedstonePipes.includeGate)
+		{
+			return (powerLevel > 0 || getMaxRedstoneOutput(paramForgeDirection) > 0) ? 1 : 2;
+		}
 		return powerLevel > 0 ? 1 : 2;
 	}
 	@Override
@@ -42,7 +46,7 @@ public class PipeItemsRedstone extends Pipe<PipeTransportItems> {
 		if(tile instanceof IPipeTile)
 		{
 			IPipe otherPipe = ((IPipeTile)tile).getPipe();
-			if(otherPipe instanceof PipeItemsIron)
+			if(otherPipe instanceof PipeItemsIron||otherPipe instanceof PipeItemsRedstone)
 			{
 				return false;
 			}
@@ -50,49 +54,79 @@ public class PipeItemsRedstone extends Pipe<PipeTransportItems> {
 		}
 		return true;
 	}
-	public void eventHandler(PipeEventItem.Entered event)
+	/*
+	 * Update methods
+	 */
+	public void updateOther()
 	{
-		powerLevel = getAppositePower(event.item);
-		this.getWorld().playSoundEffect(container.xCoord + 0.5,container.yCoord + 0.5,container.zCoord + 0.5,"random.click",0.3F,0.6F);
-		updatePower();
-	}
-
-	public void eventHandler(PipeEventItem.ReachedEnd event)
-	{
-		powerLevel = 0;
-		updatePower();
-	}
-	public void eventHandler(PipeEventItem.DropItem event)
-	{
-		powerLevel = 0;
-		updatePower();
+		container.scheduleRenderUpdate();
+		updateNeighbors(true);
 	}
 	public void updatePower()
 	{
-		container.scheduleRenderUpdate();
-		this.updateNeighbors(true);
-	}
-	/**
-	 * @param TravelingItem
-	 * @return Power output
-	 */
-	public int getAppositePower(TravelingItem item)
-	{
-		ItemStack is = item.getItemStack();
-		if(is == null)
+		TravelerSet ts = transport.items;
+		int stackPowerLevel = divideAndCeil(ts.size() * 15,64);
+		if(stackPowerLevel >= 15)
 		{
-			return 0;
+			//比較する必要無いので更新してreturn
+			powerLevel = 15;
+			return;
 		}
-		return (int)Math.ceil(15 * ((double)is.stackSize / is.getMaxStackSize()));
+		int itemsPowerLevel = 0;
+		int numItems = 0;
+		for(TravelingItem travelingItem : this.transport.items)
+		{
+			ItemStack is = travelingItem.getItemStack();
+			if(is != null && is.stackSize > 0)
+			{
+				numItems += is.stackSize;
+			}
+		}
+		itemsPowerLevel = divideAndCeil(numItems * 15,64);
+		int newPowerLevel = Math.max(stackPowerLevel, itemsPowerLevel);
+		if(powerLevel != newPowerLevel)
+		{
+			if(powerLevel == 0)
+			{
+				playSwitchOnSound();
+			}
+			powerLevel = newPowerLevel;
+			updateOther();
+			if(powerLevel == 0)
+			{
+				playSwitchOffSound();
+			}
+		}
 	}
+	/*
+	 * Redstone methods
+	 */
 	@Override
 	public boolean canConnectRedstone()
 	{
-		return true;
+		return true;//接続
 	}
 	@Override
 	public int isIndirectlyPoweringTo(int l)
 	{
+		//ゲートの出力とアイテムの出力の高い方を出力
 	    return Math.max(this.powerLevel, super.isIndirectlyPoweringTo(l));
+	}
+	/*
+	 * Utility method
+	 */
+	public static int divideAndCeil(int dividend, int divisor)
+	{
+		//切り上げ
+	    return (dividend + divisor - 1) / divisor;
+	}
+	/*
+	 * Sounds methods
+	 */
+	private void playSwitchOnSound() {
+		getWorld().playSoundEffect(container.xCoord + 0.5,container.yCoord + 0.5,container.zCoord + 0.5,"random.click",0.3F,0.6F);
+	}
+	private void playSwitchOffSound() {
+		getWorld().playSoundEffect(container.xCoord + 0.5,container.yCoord + 0.5,container.zCoord + 0.5,"random.click",0.3F,0.5F);
 	}
 }
