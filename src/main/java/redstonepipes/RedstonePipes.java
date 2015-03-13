@@ -9,6 +9,7 @@ import redstonepipes.pipes.PipeItemsGoldenMk2;
 import redstonepipes.pipes.PipeItemsRedstone;
 import buildcraft.core.CreativeTabBuildCraft;
 import buildcraft.transport.BlockGenericPipe;
+import buildcraft.transport.Pipe;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -57,12 +58,15 @@ public class RedstonePipes
 		{
 			return;
 		}
-		pipeRedstone = BlockGenericPipe.registerPipe(PipeItemsRedstone.class,CreativeTabBuildCraft.PIPES);
-		pipeRedstone.setUnlocalizedName("RedstonePipe");
-		pipeGlass = BlockGenericPipe.registerPipe(PipeItemsGlass.class,CreativeTabBuildCraft.PIPES);
-		pipeGlass.setUnlocalizedName("GlassPipe");
-		pipeGoldMk2 = BlockGenericPipe.registerPipe(PipeItemsGoldenMk2.class,CreativeTabBuildCraft.PIPES);
-		pipeGoldMk2.setUnlocalizedName("GoldenPipeMk2");
+		pipeRedstone = registerPipe(PipeItemsRedstone.class,"RedstonePipe");
+		pipeGlass = registerPipe(PipeItemsGlass.class,"GlassPipe");
+		pipeGoldMk2 = registerPipe(PipeItemsGoldenMk2.class,"GoldenPipeMk2");
 		proxy.onPreInit(e);
+	}
+	public Item registerPipe(Class<? extends Pipe<?>> clas,String unlocalizedName)
+	{
+		Item pipe = BlockGenericPipe.registerPipe(clas,CreativeTabBuildCraft.PIPES);
+		pipe.setUnlocalizedName(unlocalizedName);
+		return pipe;
 	}
 }

@@ -2,3 +2,7 @@
 item.RedstonePipe.name=赤石パイプ
 item.GlassPipe.name=ガラスパイプ
 item.GoldenPipeMk2.name=金パイプMk2
+#ToolTips
+tip.PipeItemsGlass=アイテムの速度を維持
+tip.PipeItemsRedstone=アイテムの通過中にレッドストーン動力を出力
+tip.PipeItemsGoldenMk2=レッドストーン動力を入力中にアイテムを加速
