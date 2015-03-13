@@ -1,0 +1,16 @@
+[
+{
+  "modid": "RedstonePipes",
+  "name": "Redstone Pipes",
+  "description": "Adds some useful pipes.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["nickey"],
+  "credits": "The Forge and FML guys,and developpers of BuildCraft",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
