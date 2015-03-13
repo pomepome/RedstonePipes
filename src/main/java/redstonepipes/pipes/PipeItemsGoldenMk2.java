@@ -1,5 +1,6 @@
-package redstonepipes;
+package redstonepipes.pipes;
 
+import redstonepipes.IconProviderPipes;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;

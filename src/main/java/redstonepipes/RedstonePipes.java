@@ -2,6 +2,9 @@ package redstonepipes;
 
 import java.io.File;
 
+import redstonepipes.pipes.PipeItemsGlass;
+import redstonepipes.pipes.PipeItemsGoldenMk2;
+import redstonepipes.pipes.PipeItemsRedstone;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 import buildcraft.core.CreativeTabBuildCraft;

@@ -1,5 +1,6 @@
-package redstonepipes;
+package redstonepipes.pipes;
 
+import redstonepipes.IconProviderPipes;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.util.ForgeDirection;
 import buildcraft.api.core.IIconProvider;
