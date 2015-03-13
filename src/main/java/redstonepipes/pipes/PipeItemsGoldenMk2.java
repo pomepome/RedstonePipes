@@ -20,8 +20,8 @@ public class PipeItemsGoldenMk2 extends Pipe<PipeTransportItems> {
 	/*
 	 * constants
 	 */
-	public static final float MAX_SPEED = 0.33F;//アイテムの最大速度(Max traveling speed)
-	public static final float ACCELERATION = 12.0F;//アイテムの加速度(Acceleration when receiving power)
+	public static final float MAX_SPEED = 0.5F;//アイテムの最大速度(Max traveling speed)
+	public static final float ACCELERATION = 480.0F;//アイテムの加速度(Acceleration when receiving power)
 	/*
 	 * input
 	 */
@@ -59,7 +59,7 @@ public class PipeItemsGoldenMk2 extends Pipe<PipeTransportItems> {
 			return;
 		}
 		//加速(Accelerate)
-		item.setSpeed(MathUtils.clamp(item.getSpeed() * 12.0F, 0.04F,0.32F));
+		item.setSpeed(MathUtils.clamp(item.getSpeed() * ACCELERATION, 0.04F,MAX_SPEED));
 	}
 	public boolean canPipeConnect(TileEntity tile, ForgeDirection side)
 	{
