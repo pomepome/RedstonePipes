@@ -2,11 +2,11 @@ package redstonepipes;
 
 import java.io.File;
 
+import net.minecraft.item.Item;
+import net.minecraftforge.common.config.Configuration;
 import redstonepipes.pipes.PipeItemsGlass;
 import redstonepipes.pipes.PipeItemsGoldenMk2;
 import redstonepipes.pipes.PipeItemsRedstone;
-import net.minecraft.item.Item;
-import net.minecraftforge.common.config.Configuration;
 import buildcraft.core.CreativeTabBuildCraft;
 import buildcraft.transport.BlockGenericPipe;
 import cpw.mods.fml.common.Mod;
@@ -14,7 +14,7 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "RedstonePipes",name="RedstonePipes",version="0.3",dependencies="required-after:BuildCraft|Transport")
+@Mod(modid = "RedstonePipes",name="RedstonePipes",version="0.4",dependencies="required-after:BuildCraft|Transport")
 public class RedstonePipes
 {
 

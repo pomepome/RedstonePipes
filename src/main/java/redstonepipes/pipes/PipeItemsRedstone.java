@@ -1,11 +1,11 @@
 package redstonepipes.pipes;
 
-import redstonepipes.IconProviderPipes;
-import redstonepipes.RedstonePipes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
+import redstonepipes.IconProviderPipes;
+import redstonepipes.RedstonePipes;
 import buildcraft.api.core.IIconProvider;
 import buildcraft.api.transport.IPipe;
 import buildcraft.api.transport.IPipeTile;
@@ -106,7 +106,7 @@ public class PipeItemsRedstone extends Pipe<PipeTransportItems> {
 	@Override
 	public boolean canConnectRedstone()
 	{
-		return true;//接続
+		return true;//接続 Connect to redstone
 	}
 	@Override
 	public int isIndirectlyPoweringTo(int l)
@@ -123,7 +123,7 @@ public class PipeItemsRedstone extends Pipe<PipeTransportItems> {
 	    return (dividend + divisor - 1) / divisor;
 	}
 	/*
-	 * Sounds methods
+	 * Playing sound methods
 	 */
 	private void playSwitchOnSound() {
 		getWorld().playSoundEffect(container.xCoord + 0.5,container.yCoord + 0.5,container.zCoord + 0.5,"random.click",0.3F,0.6F);
