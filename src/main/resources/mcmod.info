@@ -11,6 +11,6 @@
   "credits": "The Forge and FML guys,and developpers of BuildCraft",
   "logoFile": "",
   "screenshots": [],
-  "dependencies": []
+  "dependencies": [BuildCraft|Transport]
 }
 ]

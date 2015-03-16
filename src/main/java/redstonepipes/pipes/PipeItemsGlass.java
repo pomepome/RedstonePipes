@@ -1,5 +1,6 @@
-package redstonepipes;
+package redstonepipes.pipes;
 
+import redstonepipes.IconProviderPipes;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.util.ForgeDirection;
 import buildcraft.api.core.IIconProvider;
@@ -25,6 +26,7 @@ public class PipeItemsGlass extends Pipe<PipeTransportItems> {
 
 	public void eventHandler(PipeEventItem.AdjustSpeed event)
 	{
+		//速度変更しない
 		event.handled = true;
 	}
 

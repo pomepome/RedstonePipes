@@ -1,4 +1,8 @@
-#English Language File by nickey
+﻿#English Language File by nickey
 item.RedstonePipe.name=Redstone Pipe
 item.GlassPipe.name=Glass Pipe
 item.GoldenPipeMk2.name=Golden Pipe Mk2
+#ToolTips
+tip.PipeItemsGlass=Keeps items' speed
+tip.PipeItemsRedstone=Emitting redstone power when items are passing
+tip.PipeItemsGoldenMk2=Speeds up items when receiving redstone power
