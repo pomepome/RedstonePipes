@@ -29,6 +29,7 @@ public class RedstonePipes
 	public static Item pipeRedstone;
 	public static Item pipeGlass;
 	public static Item pipeGoldMk2;
+	public static Item pipeVoid;
 	/*
 	 * Misc
 	 */
@@ -37,7 +38,7 @@ public class RedstonePipes
 	public static boolean connectAny;
 
 	@Mod.Instance("RedstonePipes")
-	RedstonePipes instance;
+	public static RedstonePipes instance;
 	ClientProxy proxy = new ClientProxy();
 	@EventHandler
 	public void init(FMLInitializationEvent e)
@@ -50,9 +51,9 @@ public class RedstonePipes
 		configF = e.getSuggestedConfigurationFile();
 		Configuration config = new Configuration(configF);
 		config.load();
-		enabled = config.get("general","enabled",true, "is the mod enabled").getBoolean(true);
-		includeGate = config.get("general","includeGate",false,"If true,Redstone Pipe will change color including gate output.").getBoolean(false);
-		connectAny = config.get("general","connectAny",false,"If true,this mod's pipes will connect to any pipes/machines").getBoolean(false);
+		enabled = config.getBoolean("enabled","general",true, "is the mod enabled");
+		includeGate = config.getBoolean("includeGate","general",false,"If true,Redstone Pipe will change color including gate output.");
+		connectAny = config.getBoolean("connectAny","general",false,"If true,this mod's pipes will connect to any pipes/machines");
 		config.save();
 		if(!enabled)
 		{
