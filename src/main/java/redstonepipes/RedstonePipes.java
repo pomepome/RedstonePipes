@@ -29,6 +29,7 @@ public class RedstonePipes
 	public static Item pipeRedstone;
 	public static Item pipeGlass;
 	public static Item pipeGoldMk2;
+	public static Item pipeVoid;
 	/*
 	 * Misc
 	 */
@@ -37,7 +38,7 @@ public class RedstonePipes
 	public static boolean connectAny;
 
 	@Mod.Instance("RedstonePipes")
-	RedstonePipes instance;
+	public static RedstonePipes instance;
 	ClientProxy proxy = new ClientProxy();
 	@EventHandler
 	public void init(FMLInitializationEvent e)
