@@ -12,12 +12,11 @@ public class ClientProxy extends ServerProxy {
 		{
 			return;
 		}
-		registerPipeRenderer(RedstonePipes.pipeRedstone);
-		registerPipeRenderer(RedstonePipes.pipeGlass);
-		registerPipeRenderer(RedstonePipes.pipeGoldMk2);
-		registerPipeRenderer(RedstonePipes.pipeVoid);
+		registerItemPipe(RedstonePipes.pipeRedstone);
+		registerItemPipe(RedstonePipes.pipeGlass);
+		registerItemPipe(RedstonePipes.pipeGoldMk2);
 	}
-	public void registerPipeRenderer(Item item)
+	public void registerItemPipe(Item item)
 	{
 		MinecraftForgeClient.registerItemRenderer(item,TransportProxyClient.pipeItemRenderer);
 	}

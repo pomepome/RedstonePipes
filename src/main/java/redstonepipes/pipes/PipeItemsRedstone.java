@@ -7,10 +7,9 @@ import net.minecraftforge.common.util.ForgeDirection;
 import redstonepipes.IconProviderPipes;
 import redstonepipes.RedstonePipes;
 import buildcraft.api.core.IIconProvider;
-import buildcraft.api.transport.IPipe;
-import buildcraft.api.transport.IPipeTile;
 import buildcraft.transport.Pipe;
 import buildcraft.transport.PipeTransportItems;
+import buildcraft.transport.TileGenericPipe;
 import buildcraft.transport.TravelerSet;
 import buildcraft.transport.TravelingItem;
 import buildcraft.transport.pipes.PipeItemsIron;
@@ -32,7 +31,7 @@ public class PipeItemsRedstone extends Pipe<PipeTransportItems> {
 	public int getIconIndex(ForgeDirection paramForgeDirection) {
 		if(RedstonePipes.includeGate)
 		{
-			return (powerLevel > 0 || getMaxRedstoneOutput(paramForgeDirection) > 0) ? 1 : 2;
+			return hasGate() && gate.redstoneOutput > 0 ? 1 : (powerLevel > 0 ? 1 : 2);
 		}
 		return powerLevel > 0 ? 1 : 2;
 	}
@@ -49,9 +48,9 @@ public class PipeItemsRedstone extends Pipe<PipeTransportItems> {
 		{
 			return super.canPipeConnect(tile, side);
 		}
-		if(tile instanceof IPipeTile)
+		if(tile instanceof TileGenericPipe)
 		{
-			IPipe otherPipe = ((IPipeTile)tile).getPipe();
+			Pipe otherPipe = ((TileGenericPipe)tile).pipe;
 			if(otherPipe instanceof PipeItemsIron||otherPipe instanceof PipeItemsRedstone)
 			{
 				return false;

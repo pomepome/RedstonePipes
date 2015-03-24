@@ -7,11 +7,10 @@ import net.minecraftforge.common.util.ForgeDirection;
 import redstonepipes.IconProviderPipes;
 import redstonepipes.RedstonePipes;
 import buildcraft.api.core.IIconProvider;
-import buildcraft.api.transport.IPipe;
-import buildcraft.api.transport.IPipeTile;
 import buildcraft.core.utils.MathUtils;
 import buildcraft.transport.Pipe;
 import buildcraft.transport.PipeTransportItems;
+import buildcraft.transport.TileGenericPipe;
 import buildcraft.transport.TravelingItem;
 import buildcraft.transport.pipes.events.PipeEventItem;
 
@@ -67,9 +66,9 @@ public class PipeItemsGoldenMk2 extends Pipe<PipeTransportItems> {
 		{
 			return super.canPipeConnect(tile, side);
 		}
-		if(tile instanceof IPipeTile)
+		if(tile instanceof TileGenericPipe)
 		{
-			IPipe otherPipe = ((IPipeTile)tile).getPipe();
+			Pipe otherPipe = ((TileGenericPipe)tile).pipe;
 			if(otherPipe instanceof PipeItemsGoldenMk2)
 			{
 				return false;
