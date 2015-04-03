@@ -112,10 +112,16 @@ public class PipeItemsRedstone extends Pipe<PipeTransportItems> {
 		return true;//接続 Connect to redstone
 	}
 	@Override
-	public int isIndirectlyPoweringTo(int l)
+	public int isPoweringTo(int l)
 	{
 		//ゲートの出力とアイテムの出力の高い方を出力
-	    return Math.max(this.powerLevel, super.isIndirectlyPoweringTo(l));
+		updatePower();
+	    return Math.max(this.powerLevel, super.isPoweringTo(l));
+	}
+	@Override
+	public int isIndirectlyPoweringTo(int l)
+	{
+		return isPoweringTo(l);
 	}
 	/*
 	 * Utility method

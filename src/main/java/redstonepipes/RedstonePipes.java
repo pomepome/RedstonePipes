@@ -12,10 +12,11 @@ import buildcraft.transport.BlockGenericPipe;
 import buildcraft.transport.Pipe;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "RedstonePipes",name="RedstonePipes",version="0.4",dependencies="required-after:BuildCraft|Transport")
+@Mod(modid = "RedstonePipes",name="RedstonePipes",version="1.0",dependencies="required-after:BuildCraft|Transport")
 public class RedstonePipes
 {
 
@@ -39,7 +40,8 @@ public class RedstonePipes
 
 	@Mod.Instance("RedstonePipes")
 	public static RedstonePipes instance;
-	ClientProxy proxy = new ClientProxy();
+	@SidedProxy(clientSide="redstonepipes.ClientProxy",serverSide="redstonepipes.CommonProxy")
+	public static CommonProxy proxy;
 	@EventHandler
 	public void init(FMLInitializationEvent e)
 	{
