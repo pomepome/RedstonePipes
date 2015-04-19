@@ -1,5 +1,8 @@
 package redstonepipes;
 
+import static buildcraft.BuildCraftTransport.*;
+import static redstonepipes.RedstonePipes.*;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -18,17 +21,20 @@ public class ClientProxy extends CommonProxy {
 		{
 			return;
 		}
-		registerPipeRenderer(RedstonePipes.pipeRedstone);
-		registerPipeRenderer(RedstonePipes.pipeGlass);
-		registerPipeRenderer(RedstonePipes.pipeGoldMk2);
-		registerPipeRenderer(RedstonePipes.pipeVoid);
+		registerPipeRenderer(pipeRedstone);
+		registerPipeRenderer(pipeGlass);
+		registerPipeRenderer(pipeGoldMk2);
+		registerPipeRenderer(pipeFluidRedstone);
+		registerPipeRenderer(pipeAdvancedInsertion);
 	}
 	@Override
 	public void onPreInit(FMLPreInitializationEvent e)
 	{
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(RedstonePipes.pipeRedstone,8),"RGR",'R',Items.redstone,'G',"blockGlass"));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(RedstonePipes.pipeGlass,32),"GDG",'G',"blockGlass",'D',"gemDiamond"));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(RedstonePipes.pipeGoldMk2,8)," R ","GWG",'R',Items.redstone,'G',Items.gold_ingot,'W',"blockGlass"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(pipeRedstone,8),"RGR",'R',Items.redstone,'G',"blockGlass"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(pipeGlass,32),"GDG",'G',"blockGlass",'D',"gemDiamond"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(pipeGoldMk2,8)," R ","GWG",'R',Items.redstone,'G',Items.gold_ingot,'W',"blockGlass"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(pipeAdvancedInsertion,8)," R ","SWS",'R',Items.redstone,'S',Blocks.stone,'W',"blockGlass"));
+		GameRegistry.addRecipe(new ItemStack(pipeFluidRedstone),"S","P",'S',pipeWaterproof,'P',pipeRedstone);
 	}
 	@Override
 	public void registerPipeRenderer(Item item)

@@ -1,5 +1,10 @@
 package redstonepipes.pipes;
 
+import static redstonepipes.RedstonePipes.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -79,11 +84,13 @@ public class PipeItemsRedstone extends Pipe<PipeTransportItems> {
 		}
 		int itemsPowerLevel = 0;
 		int numItems = 0;
+		List<ItemStack> iss = new ArrayList<ItemStack>();
 		for(TravelingItem travelingItem : this.transport.items)
 		{
 			ItemStack is = travelingItem.getItemStack();
 			if(is != null && is.stackSize > 0)
 			{
+				iss.add(is);
 				numItems += is.stackSize;
 			}
 		}
@@ -115,21 +122,12 @@ public class PipeItemsRedstone extends Pipe<PipeTransportItems> {
 	public int isPoweringTo(int l)
 	{
 		//ゲートの出力とアイテムの出力の高い方を出力
-		updatePower();
 	    return Math.max(this.powerLevel, super.isPoweringTo(l));
 	}
 	@Override
 	public int isIndirectlyPoweringTo(int l)
 	{
 		return isPoweringTo(l);
-	}
-	/*
-	 * Utility method
-	 */
-	public static int divideAndCeil(int dividend, int divisor)
-	{
-		//切り上げ
-	    return (dividend + divisor - 1) / divisor;
 	}
 	/*
 	 * Playing sound methods

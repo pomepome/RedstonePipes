@@ -2,6 +2,8 @@
 item.RedstonePipe.name=Redstone Pipe
 item.GlassPipe.name=Glass Pipe
 item.GoldenPipeMk2.name=Golden Pipe Mk2
+item.FluidRedstonePipe.name=Redstone Waterproof Pipe
+item.AdvancedInsertionPipe.name=Advanced Insertion Pipe
 #ToolTips
 tip.PipeItemsGlass=Keeps items' speed
 tip.PipeItemsRedstone=Emitting redstone power when items are passing

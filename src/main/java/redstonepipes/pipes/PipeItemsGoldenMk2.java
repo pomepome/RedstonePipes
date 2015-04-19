@@ -15,8 +15,8 @@ import buildcraft.transport.PipeTransportItems;
 import buildcraft.transport.TravelingItem;
 import buildcraft.transport.pipes.events.PipeEventItem;
 
-public class PipeItemsGoldenMk2 extends Pipe<PipeTransportItems> {
-
+public class PipeItemsGoldenMk2 extends Pipe<PipeTransportItems>
+{
 	/*
 	 * constants
 	 */

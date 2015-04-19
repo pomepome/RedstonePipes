@@ -10,7 +10,7 @@ public class IconProviderPipes implements IIconProvider
 {
 	public static IconProviderPipes instance = new IconProviderPipes();
 	private IIcon[] icons;
-	private static final int iconCount = 5;
+	private static final int iconCount = 8;
 
 	public IconProviderPipes()
 	{
