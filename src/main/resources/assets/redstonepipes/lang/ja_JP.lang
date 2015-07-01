@@ -4,6 +4,7 @@ item.GlassPipe.name=ガラスパイプ
 item.GoldenPipeMk2.name=金パイプMk2
 item.FluidRedstonePipe.name=液体用赤石パイプ
 item.AdvancedInsertionPipe.name=発展型挿入パイプ
+tile.TeleportTether.name=テレポートテザー
 #ToolTips
 tip.PipeItemsGlass=アイテムの速度を維持
 tip.PipeItemsRedstone=アイテムの通過中にレッドストーン動力を出力

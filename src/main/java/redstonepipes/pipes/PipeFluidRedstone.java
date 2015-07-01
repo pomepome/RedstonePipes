@@ -1,25 +1,26 @@
 package redstonepipes.pipes;
 
 import static redstonepipes.RedstonePipes.*;
+
+import buildcraft.api.core.IIconProvider;
+import buildcraft.api.transport.IPipe;
+import buildcraft.api.transport.IPipeTile;
+import buildcraft.transport.Pipe;
+import buildcraft.transport.PipeTransportFluids;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.FluidStack;
 import redstonepipes.IconProviderPipes;
 import redstonepipes.RedstonePipes;
-import buildcraft.api.core.IIconProvider;
-import buildcraft.api.transport.IPipe;
-import buildcraft.api.transport.IPipeTile;
-import buildcraft.transport.Pipe;
-import buildcraft.transport.PipeTransportFluids;
 
 public class PipeFluidRedstone extends Pipe<PipeTransportFluids>
 {
 	private int powerLevel;
 	public PipeFluidRedstone(Item item) {
 		super(new PipeTransportFluids(), item);
-		transport.flowRate = 160;
-		transport.travelDelay = 4;
+		transport.LIQUID_IN_PIPE = 160;
+		transport.MAX_TRAVEL_DELAY = 4;
 	}
 	@Override
 	public IIconProvider getIconProvider() {
@@ -46,7 +47,7 @@ public class PipeFluidRedstone extends Pipe<PipeTransportFluids>
 	}
 	private int getFluidAmount()
 	{
-		FluidStack stack = transport.renderCache[ForgeDirection.UNKNOWN.ordinal()];
+		FluidStack stack = transport.fluidType;
 		return stack == null ? 0 : stack.amount;
 	}
 	private void updatePower()
