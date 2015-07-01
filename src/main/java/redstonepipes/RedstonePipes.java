@@ -23,7 +23,7 @@ import redstonepipes.pipes.PipeItemsGlass;
 import redstonepipes.pipes.PipeItemsGoldenMk2;
 import redstonepipes.pipes.PipeItemsRedstone;
 
-@Mod(modid = "RedstonePipes",name="RedstonePipes",version="1.0",dependencies="required-after:BuildCraft|Transport[7.0.3,)")
+@Mod(modid = "RedstonePipes",name="RedstonePipes",version="1.0",dependencies="required-after:BuildCraft|Transport@[7.0.3,)")
 public class RedstonePipes
 {
 	/*
