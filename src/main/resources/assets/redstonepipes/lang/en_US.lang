@@ -1,10 +1,13 @@
-﻿#English Language File by nickey
+﻿#English Language File by pome
 item.RedstonePipe.name=Redstone Pipe
 item.GlassPipe.name=Glass Pipe
 item.GoldenPipeMk2.name=Golden Pipe Mk2
 item.FluidRedstonePipe.name=Redstone Waterproof Pipe
 item.AdvancedInsertionPipe.name=Advanced Insertion Pipe
+tile.Teleport-Tether.name=Teleport Tether
 #ToolTips
 tip.PipeItemsGlass=Keeps items' speed
 tip.PipeItemsRedstone=Emitting redstone power when items are passing
 tip.PipeItemsGoldenMk2=Speeds up items when receiving redstone power
+#CreativeTab
+itemGroup.buildcraft.RedstonePipes=RedstonePipes

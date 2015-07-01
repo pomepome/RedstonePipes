@@ -1,27 +1,26 @@
 package redstonepipes.pipes;
 
+import buildcraft.api.core.IIconProvider;
+import buildcraft.api.transport.IPipe;
+import buildcraft.api.transport.IPipeTile;
+import buildcraft.transport.Pipe;
+import buildcraft.transport.PipeTransportItems;
+import buildcraft.transport.TravelingItem;
+import buildcraft.transport.pipes.events.PipeEventItem;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import redstonepipes.IconProviderPipes;
 import redstonepipes.RedstonePipes;
-import buildcraft.api.core.IIconProvider;
-import buildcraft.api.transport.IPipe;
-import buildcraft.api.transport.IPipeTile;
-import buildcraft.core.utils.MathUtils;
-import buildcraft.transport.Pipe;
-import buildcraft.transport.PipeTransportItems;
-import buildcraft.transport.TravelingItem;
-import buildcraft.transport.pipes.events.PipeEventItem;
 
 public class PipeItemsGoldenMk2 extends Pipe<PipeTransportItems>
 {
 	/*
 	 * constants
 	 */
-	public static final float MAX_SPEED = 0.5F;//アイテムの最大速度(Max traveling speed)
-	public static final float ACCELERATION = 480.0F;//アイテムの加速度(Acceleration when receiving power)
+	public static final float MAX_SPEED = 1.0F;//アイテムの最大速度(Max traveling speed)
+	public static final float ACCELERATION = 4800.0F;//アイテムの加速度(Acceleration when receiving power)
 	/*
 	 * input
 	 */
@@ -55,11 +54,11 @@ public class PipeItemsGoldenMk2 extends Pipe<PipeTransportItems>
 		if(!isPowered)
 		{
 			//速度を制限(Limit speed)
-			item.setSpeed(MathUtils.clamp(item.getSpeed(), 0.04F,0.14999999F));
+			item.setSpeed(clamp(item.getSpeed(), 0.04F,0.14999999F));
 			return;
 		}
 		//加速(Accelerate)
-		item.setSpeed(MathUtils.clamp(item.getSpeed() * ACCELERATION, 0.04F,MAX_SPEED));
+		item.setSpeed(clamp(item.getSpeed() * ACCELERATION, 0.04F,MAX_SPEED));
 	}
 	public boolean canPipeConnect(TileEntity tile, ForgeDirection side)
 	{
@@ -76,5 +75,18 @@ public class PipeItemsGoldenMk2 extends Pipe<PipeTransportItems>
 			}
 		}
 		return super.canPipeConnect(tile, side);
+	}
+
+	public float clamp(float value,float min,float max)
+	{
+		if(value > max)
+		{
+			return max;
+		}
+		if(value < min)
+		{
+			return min;
+		}
+		return value;
 	}
 }
