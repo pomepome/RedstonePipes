@@ -13,9 +13,10 @@ import redstonepipes.RedstonePipes;
 public class TileTeleportTether extends TileEntity
 {
 	private Ticket chunkTicket;
-	private int loadDistance = 2;
 	public List<ChunkCoordIntPair> getLoadArea()
 	{
+		int damage = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
+		int loadDistance = damage + 1;
 		List<ChunkCoordIntPair> loadArea = new LinkedList<ChunkCoordIntPair>();
 		for(int x = -loadDistance;x < loadDistance + 1;x++)
 		{
@@ -44,7 +45,6 @@ public class TileTeleportTether extends TileEntity
 	}
 
 	public void setLoadDistance(int dist) {
-		loadDistance = dist;
 		forceChunkLoading(chunkTicket);
 	}
 

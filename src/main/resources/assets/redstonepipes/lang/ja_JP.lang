@@ -1,10 +1,14 @@
-﻿#Japanese Language File by nickey
+﻿#Japanese Language File by pome
 item.RedstonePipe.name=赤石パイプ
 item.GlassPipe.name=ガラスパイプ
 item.GoldenPipeMk2.name=金パイプMk2
 item.FluidRedstonePipe.name=液体用赤石パイプ
 item.AdvancedInsertionPipe.name=発展型挿入パイプ
-tile.Teleport-Tether.name=テレポートテザー
+#Teleport-Tether
+tile.Teleport-Tether_0.name=テレポートテザーMk1
+tile.Teleport-Tether_1.name=テレポートテザーMk2
+tile.Teleport-Tether_2.name=テレポートテザーMk3
+tile.Teleport-Tether_3.name=テレポートテザーMk4
 #ToolTips
 tip.PipeItemsGlass=アイテムの速度を維持
 tip.PipeItemsRedstone=アイテムの通過中にレッドストーン動力を出力

@@ -4,7 +4,11 @@ item.GlassPipe.name=Glass Pipe
 item.GoldenPipeMk2.name=Golden Pipe Mk2
 item.FluidRedstonePipe.name=Redstone Waterproof Pipe
 item.AdvancedInsertionPipe.name=Advanced Insertion Pipe
-tile.Teleport-Tether.name=Teleport Tether
+#Teleport-Tether
+tile.Teleport-Tether_0.name=Teleport Tether Mk1
+tile.Teleport-Tether_1.name=Teleport Tether Mk2
+tile.Teleport-Tether_2.name=Teleport Tether Mk3
+tile.Teleport-Tether_3.name=Teleport Tether Mk4
 #ToolTips
 tip.PipeItemsGlass=Keeps items' speed
 tip.PipeItemsRedstone=Emitting redstone power when items are passing

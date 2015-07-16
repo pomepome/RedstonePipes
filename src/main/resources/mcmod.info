@@ -1,13 +1,13 @@
 [
 {
-  "modid": "RedstonePipes",
-  "name": "Redstone Pipes",
+  "modid": "RedstonePipesR",
+  "name": "Redstone Pipes Reloaded",
   "description": "Adds some useful pipes.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["nickey"],
+  "authorList": ["pome"],
   "credits": "The Forge and FML guys,and developpers of BuildCraft",
   "logoFile": "",
   "screenshots": [],

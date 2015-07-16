@@ -3,6 +3,7 @@ package redstonepipes;
 import static buildcraft.BuildCraftTransport.*;
 import static redstonepipes.RedstonePipes.*;
 
+import buildcraft.BuildCraftCore;
 import buildcraft.transport.TransportProxyClient;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -36,8 +37,10 @@ public class ClientProxy extends CommonProxy {
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(pipeGoldMk2,8)," R ","GWG",'R',Items.redstone,'G',Items.gold_ingot,'W',"blockGlass"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(pipeAdvancedInsertion,8)," R ","SWS",'R',Items.redstone,'S',Blocks.stone,'W',"blockGlass"));
 		GameRegistry.addRecipe(new ItemStack(pipeFluidRedstone),"S","P",'S',pipeWaterproof,'P',pipeRedstone);
-		GameRegistry.addRecipe(new ItemStack(TeleportTether),"III","IRI","III",'I',Items.iron_ingot,'R',Items.redstone);
-
+		GameRegistry.addRecipe(new ItemStack(TeleportTether,4),"III","IRI","III",'I',Items.iron_ingot,'R',Items.redstone);
+		GameRegistry.addRecipe(new ItemStack(TeleportTether,1,1),"TGT",'T',new ItemStack(TeleportTether,1,0),'G',BuildCraftCore.stoneGearItem);
+		GameRegistry.addRecipe(new ItemStack(TeleportTether,1,2),"TGT",'T',new ItemStack(TeleportTether,1,1),'G',BuildCraftCore.ironGearItem);
+		GameRegistry.addRecipe(new ItemStack(TeleportTether,1,3),"TGT",'T',new ItemStack(TeleportTether,1,2),'G',BuildCraftCore.goldGearItem);
 	}
 	@Override
 	public void registerPipeRenderer(Item item)
